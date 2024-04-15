@@ -1,5 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React, { useEffect, useState } from "react";
+import { Fontisto } from "@expo/vector-icons";
+import { FontAwesome6 } from "@expo/vector-icons";
 
 export default function Screen1() {
   const [hour, setHour] = useState("00");
@@ -39,12 +41,12 @@ export default function Screen1() {
       <Text style={styles.ampm}>{ampm}</Text>
 
       <View style={styles.bottomnav}>
-        <TouchableOpacity>
-          <Text style={styles.bottomnavtext}>+</Text>
+        <TouchableOpacity style={styles.bottomnaviconactive}>
+          <FontAwesome6 name="clock" size={60} color="white" />
         </TouchableOpacity>
 
-        <TouchableOpacity>
-          <Text style={styles.bottomnavtext}>-</Text>
+        <TouchableOpacity style={styles.bottomnaviconout}>
+          <Fontisto name="stopwatch" size={65} color="grey" />
         </TouchableOpacity>
       </View>
     </View>
@@ -93,19 +95,15 @@ const styles = StyleSheet.create({
     width: "100%",
     position: "absolute",
     bottom: 0,
+    paddingVertical: 5,
     flexDirection: "row",
     justifyContent: "center",
-    justifyContent: "center",
+    alignItems: "center",
   },
-  bottomnavtext: {
-    color: "black",
-    fontSize: 30,
-    marginHorizontal: 10,
-    width: 50,
-    height: 50,
-    backgroundColor: "white",
-    textAlign: "center",
-    borderRadius: 50,
-    marginBottom: 20,
+  bottomnaviconactive: {
+    right: 15,
+  },
+  bottomnaviconout: {
+    left: 15,
   },
 });
